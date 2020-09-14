@@ -35,7 +35,7 @@ public class DrivingExamEvaluator {
      */
     private static String validateID(String id) {
         if (id.length() > ID_MAX_LENGTH) {
-            System.out.printf("Invalid ID. Defaulting to: %s.", DEFAULT_ID);
+            System.out.printf("Invalid ID. Defaulting to: %s.%n", DEFAULT_ID);
             return DEFAULT_ID;
         }
         return id;
@@ -53,7 +53,7 @@ public class DrivingExamEvaluator {
         else if (score < MIN_SCORE) score = MIN_SCORE;
         else return score;
 
-        System.out.printf("Invalid score. Defaulting to: %d.", score);
+        System.out.printf("Invalid score. Defaulting to: %d.%n", score);
         return score;
     }
 
