@@ -35,7 +35,7 @@ public class DrivingExamEvaluator {
      */
     private static String validateID(String id) {
         if (id.length() > ID_MAX_LENGTH) {
-            System.out.printf("%nInvalid ID. Defaulting to: %s.", DEFAULT_ID);
+            System.out.printf("Invalid ID. Defaulting to: %s.", DEFAULT_ID);
             return DEFAULT_ID;
         }
         return id;
