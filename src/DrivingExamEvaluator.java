@@ -58,13 +58,38 @@ public class DrivingExamEvaluator {
         return score;
     }
 
+    private static void calculateScore(int writtenScore, int practicalScore) {
+        double weightedWritten = WRITTEN_SCORE_WEIGHT * (writtenScore / MAX_SCORE);
+        double weightedPractical = PRACTICAL_SCORE_WEIGHT * (practicalScore / MAX_SCORE);
+        double totalWeighted = weightedWritten + weightedPractical;
+
+        System.out.printf(
+                "%nYour written exam, weighted %.0f%% of your total score, is: %.2f%%",
+                WRITTEN_SCORE_WEIGHT * 100, weightedWritten * 100
+        );
+        System.out.printf(
+                "%nYour practical exam, weighted %.0f%% of your total score, is: %.2f%%",
+                PRACTICAL_SCORE_WEIGHT * 100, weightedPractical * 100
+        );
+        System.out.printf("%nYour total score is: %f", totalWeighted);
+    }
+
     public static void loop() {
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter your student ID: ");
-        String id = validateID(scan.nextLine());
+        String studentID = validateID(scan.nextLine());
         System.out.print("Enter your written exam score: ");
         int writtenScore = validateScore(scan.nextInt());
         System.out.print("Enter your practical exam score: ");
         int practicalScore = validateScore(scan.nextInt());
+
+        System.out.println("=========================================");
+        System.out.printf("STUDENT ID: %s%n", studentID);
+        System.out.println("Congratulations on finishing your test!");
+        System.out.println("-----------------------------------------");
+        System.out.println("YOUR RESULTS");
+        System.out.printf("  Written exam: %d%n", writtenScore);
+        System.out.printf("Practical exam: %d%n", practicalScore);
+        calculateScore(writtenScore, practicalScore);
     }
 }
