@@ -60,6 +60,12 @@ public class DrivingExamEvaluator {
         return score;
     }
 
+    /**
+     * Calculate the user's score and determine their results.
+     *
+     * @param writtenScore The (validated) written score.
+     * @param practicalScore The (validated) practical score.
+     */
     private static void calculateScore(double writtenScore, double practicalScore) {
         double weightedWritten = WRITTEN_SCORE_WEIGHT * (writtenScore / MAX_SCORE);
         double weightedPractical = PRACTICAL_SCORE_WEIGHT * (practicalScore / MAX_SCORE);
@@ -83,6 +89,14 @@ public class DrivingExamEvaluator {
         System.out.printf(" A passing grade requires you to score %.0f%% or above.%n", PASS_PERCENTAGE);
     }
 
+    /**
+     * Display the user's exam results.
+     * Shows the user the scores for each tests, their weighted average, and the result.
+     *
+     * @param studentID The (validated) student ID.
+     * @param writtenScore The (validated) written score.
+     * @param practicalScore The (validated) practical score.
+     */
     private static void displayResults(String studentID, double writtenScore, double practicalScore) {
         System.out.println("=========================================");
         System.out.printf("STUDENT ID: %s%n", studentID);
@@ -92,6 +106,9 @@ public class DrivingExamEvaluator {
         calculateScore(writtenScore, practicalScore);
     }
 
+    /**
+     * Run the execution loop.
+     */
     public static void loop() {
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter your student ID: ");
