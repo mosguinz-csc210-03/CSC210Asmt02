@@ -20,6 +20,9 @@ public class GuessingGame {
         loop();
     }
 
+    /**
+     * Print the welcome message for the game.
+     */
     private static void printHeader() {
         System.out.println("GUESS MY NUMBER!");
         System.out.printf("I've selected a number between %d to %d inclusive.%n", MIN_BOUND, MAX_BOUND);
@@ -27,6 +30,9 @@ public class GuessingGame {
         System.out.printf("See if you can guess it in %d rounds or fewer!%n", MAX_GUESSES);
     }
 
+    /**
+     * Run the game's execution loop.
+     */
     private static void loop() {
         int totalGuesses = 0;
         int delta;
