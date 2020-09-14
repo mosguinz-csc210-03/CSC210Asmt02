@@ -15,9 +15,11 @@ public class DrivingExamEvaluator {
     static final String DEFAULT_ID = "999999999";
     static final int MIN_SCORE = 0;
     static final int MAX_SCORE = 500;
-    static final double WRITTEN_SCORE_WEIGHT = 0.74;
-    static final double PRACTICAL_SCORE_WEIGHT = 0.26;
-    static final double PASS_PERCENTAGE = 0.52;
+
+    // In percentage
+    static final double WRITTEN_SCORE_WEIGHT = 74;
+    static final double PRACTICAL_SCORE_WEIGHT = 26;
+    static final double PASS_PERCENTAGE = 52;
 
     public static void main(String[] args) {
         loop();
@@ -65,13 +67,13 @@ public class DrivingExamEvaluator {
 
         System.out.printf(
                 "%nYour written exam, weighted %.0f%% of your total score, is: %.2f%%",
-                WRITTEN_SCORE_WEIGHT * 100, weightedWritten * 100
+                WRITTEN_SCORE_WEIGHT, weightedWritten
         );
         System.out.printf(
                 "%nYour practical exam, weighted %.0f%% of your total score, is: %.2f%%",
-                PRACTICAL_SCORE_WEIGHT * 100, weightedPractical * 100
+                PRACTICAL_SCORE_WEIGHT, weightedPractical
         );
-        System.out.printf("%nYour total score is: %f", totalWeighted);
+        System.out.printf("%nYour total score is: %.2f%%", totalWeighted);
     }
 
     private static void displayResults(String studentID, double writtenScore, double practicalScore) {
