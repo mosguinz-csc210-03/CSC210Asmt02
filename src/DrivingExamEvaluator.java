@@ -71,21 +71,14 @@ public class DrivingExamEvaluator {
         double weightedPractical = PRACTICAL_SCORE_WEIGHT * (practicalScore / MAX_SCORE);
         double totalWeighted = weightedWritten + weightedPractical;
 
-        System.out.printf(
-                "%nYour written exam, weighted %.0f%% of your total score, is: %.2f%%",
-                WRITTEN_SCORE_WEIGHT, weightedWritten
-        );
-        System.out.printf(
-                "%nYour practical exam, weighted %.0f%% of your total score, is: %.2f%%",
-                PRACTICAL_SCORE_WEIGHT, weightedPractical
-        );
+        String scoreMessage = "%nYour %s exam, weighted %.0f%% of your total score, is: %.2f%%";
+        System.out.printf(scoreMessage, "written", WRITTEN_SCORE_WEIGHT, weightedWritten);
+        System.out.printf(scoreMessage, "practical", PRACTICAL_SCORE_WEIGHT, weightedPractical);
         System.out.printf("%nYour total score is: %.2f%%%n", totalWeighted);
 
-        if (totalWeighted >= PASS_PERCENTAGE) {
-            System.out.print("Congratulations, you passed!");
-        } else {
-            System.out.print("Unfortunately, you failed!");
-        }
+        if (totalWeighted >= PASS_PERCENTAGE) System.out.print("Congratulations, you passed!");
+        else System.out.print("Unfortunately, you failed!");
+
         System.out.printf(" A passing grade requires you to score %.0f%% or above.%n", PASS_PERCENTAGE);
     }
 
