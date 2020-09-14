@@ -1,6 +1,6 @@
 /*
  * Assignment 02
- * Description: Driving exam evaluator
+ * Description: [Part 1 of 2] Driving exam evaluator
  * Name: Kullathon "Mos" Sitthisarnwattanachai
  * ID: 921425216
  * Class: CSC 210-03
