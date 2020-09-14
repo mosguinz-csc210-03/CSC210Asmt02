@@ -41,9 +41,29 @@ public class DrivingExamEvaluator {
         return id;
     }
 
+    /**
+     * Validate the given score.
+     * Prints a message of the given score is invalid and returns a score
+     * that is within the valid range.
+     * @param score The score to validate.
+     * @return A valid score.
+     */
+    private static int validateScore(int score) {
+        if (score > MAX_SCORE) score = MAX_SCORE;
+        else if (score < MIN_SCORE) score = MIN_SCORE;
+        else return score;
+
+        System.out.printf("Invalid score. Defaulting to: %d.", score);
+        return score;
+    }
+
     public static void loop() {
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter your student ID: ");
         String id = validateID(scan.nextLine());
+        System.out.print("Enter your written exam score: ");
+        int writtenScore = validateScore(scan.nextInt());
+        System.out.print("Enter your practical exam score: ");
+        int practicalScore = validateScore(scan.nextInt());
     }
 }
