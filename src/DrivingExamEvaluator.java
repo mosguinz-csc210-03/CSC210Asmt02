@@ -49,16 +49,16 @@ public class DrivingExamEvaluator {
      * @param score The score to validate.
      * @return A valid score.
      */
-    private static int validateScore(int score) {
+    private static double validateScore(double score) {
         if (score > MAX_SCORE) score = MAX_SCORE;
         else if (score < MIN_SCORE) score = MIN_SCORE;
         else return score;
 
-        System.out.printf("Invalid score. Defaulting to: %d.%n", score);
+        System.out.printf("Invalid score. Defaulting to: %.0f.%n", score);
         return score;
     }
 
-    private static void calculateScore(int writtenScore, int practicalScore) {
+    private static void calculateScore(double writtenScore, double practicalScore) {
         double weightedWritten = WRITTEN_SCORE_WEIGHT * (writtenScore / MAX_SCORE);
         double weightedPractical = PRACTICAL_SCORE_WEIGHT * (practicalScore / MAX_SCORE);
         double totalWeighted = weightedWritten + weightedPractical;
@@ -79,17 +79,17 @@ public class DrivingExamEvaluator {
         System.out.print("Enter your student ID: ");
         String studentID = validateID(scan.nextLine());
         System.out.print("Enter your written exam score: ");
-        int writtenScore = validateScore(scan.nextInt());
+        double writtenScore = validateScore(scan.nextDouble());
         System.out.print("Enter your practical exam score: ");
-        int practicalScore = validateScore(scan.nextInt());
+        double practicalScore = validateScore(scan.nextDouble());
 
         System.out.println("=========================================");
         System.out.printf("STUDENT ID: %s%n", studentID);
         System.out.println("Congratulations on finishing your test!");
         System.out.println("-----------------------------------------");
         System.out.println("YOUR RESULTS");
-        System.out.printf("  Written exam: %d%n", writtenScore);
-        System.out.printf("Practical exam: %d%n", practicalScore);
+        System.out.printf("  Written exam: %f%n", writtenScore);
+        System.out.printf("Practical exam: %f%n", practicalScore);
         calculateScore(writtenScore, practicalScore);
     }
 }
