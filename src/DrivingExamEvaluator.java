@@ -88,8 +88,8 @@ public class DrivingExamEvaluator {
         System.out.println("Congratulations on finishing your test!");
         System.out.println("-----------------------------------------");
         System.out.println("YOUR RESULTS");
-        System.out.printf("  Written exam: %f%n", writtenScore);
-        System.out.printf("Practical exam: %f%n", practicalScore);
+        System.out.printf("  Written exam: %.2f%n", writtenScore);
+        System.out.printf("Practical exam: %.2f%n", practicalScore);
         calculateScore(writtenScore, practicalScore);
     }
 }
