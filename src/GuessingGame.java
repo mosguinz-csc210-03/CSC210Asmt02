@@ -17,11 +17,14 @@ public class GuessingGame {
     private static final int MAX_GUESSES = 10;
 
     public static void main(String[] args) {
+        loop();
+    }
+
+    private static void printHeader() {
         System.out.println("GUESS MY NUMBER!");
         System.out.printf("I've selected a number between %d to %d inclusive.%n", MIN_BOUND, MAX_BOUND);
         System.out.println("I'll tell you if it is too high or too low for each guess.");
         System.out.printf("See if you can guess it in %d rounds or fewer!%n", MAX_GUESSES);
-        loop();
     }
 
     private static void loop() {
@@ -29,6 +32,8 @@ public class GuessingGame {
         int delta;
         int targetNumber = new Random().nextInt(MAX_BOUND - MIN_BOUND + 1) + MIN_BOUND;
         Scanner scan = new Scanner(System.in);
+
+        printHeader();
 
         while (true) {
             totalGuesses++;
