@@ -18,7 +18,7 @@ public class GuessingGame {
 
     public static void main(String[] args) {
         System.out.println("GUESS MY NUMBER!");
-        System.out.printf("I've selected a number between %d to %d.%n", MIN_BOUND, MAX_BOUND);
+        System.out.printf("I've selected a number between %d to %d inclusive.%n", MIN_BOUND, MAX_BOUND);
         System.out.println("I'll tell you if it is too high or too low for each guess.");
         System.out.printf("See if you can guess it in %d rounds or fewer!%n", MAX_GUESSES);
         loop();
