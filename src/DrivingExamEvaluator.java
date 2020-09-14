@@ -73,7 +73,14 @@ public class DrivingExamEvaluator {
                 "%nYour practical exam, weighted %.0f%% of your total score, is: %.2f%%",
                 PRACTICAL_SCORE_WEIGHT, weightedPractical
         );
-        System.out.printf("%nYour total score is: %.2f%%", totalWeighted);
+        System.out.printf("%nYour total score is: %.2f%%%n", totalWeighted);
+
+        if (totalWeighted >= PASS_PERCENTAGE) {
+            System.out.print("Congratulations, you passed!");
+        } else {
+            System.out.print("Unfortunately, you failed!");
+        }
+        System.out.printf(" A passing grade requires you to score %.0f%% or above.%n", PASS_PERCENTAGE);
     }
 
     private static void displayResults(String studentID, double writtenScore, double practicalScore) {
@@ -81,7 +88,7 @@ public class DrivingExamEvaluator {
         System.out.printf("STUDENT ID: %s%n", studentID);
         System.out.println("Congratulations on finishing your test!");
         System.out.println("-----------------------------------------");
-        System.out.printf("Your final scores: WRITTEN: %.2f, PRACTICAL: %.2f%n", writtenScore, practicalScore);
+        System.out.printf("Your final scores: WRITTEN: %.2f, PRACTICAL: %.2f", writtenScore, practicalScore);
         calculateScore(writtenScore, practicalScore);
     }
 
