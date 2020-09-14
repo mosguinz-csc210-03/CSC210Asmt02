@@ -20,7 +20,34 @@ public class GuessingGame {
         System.out.println("GUESS MY NUMBER!");
         System.out.printf("I've selected a number between %d to %d.%n", MIN_BOUND, MAX_BOUND);
         System.out.println("I'll tell you if it is too high or too low for each guess.");
-        System.out.printf("See if you can guess it in %d rounds or fewer!%n%n", MAX_GUESSES);
+        System.out.printf("See if you can guess it in %d rounds or fewer!%n", MAX_GUESSES);
+        loop();
+    }
 
+    private static void loop() {
+        int totalGuesses = 0;
+        int delta;
+        int targetNumber = new Random().nextInt(MAX_BOUND - MIN_BOUND + 1) + MIN_BOUND;
+        Scanner scan = new Scanner(System.in);
+
+        while (true) {
+            totalGuesses++;
+            System.out.printf(">>> Guess #%d: ", totalGuesses);
+            delta = targetNumber - scan.nextInt();
+
+            if (delta > 0) System.out.println("[x] Too low!");
+            else if (delta < 0) System.out.println("[x] Too high!");
+            else {
+                System.out.print("\nAwesome, you won!");
+                break;
+            }
+
+            if (totalGuesses == MAX_GUESSES) {
+                System.out.print("\nGame over!");
+                break;
+            }
+        }
+
+        System.out.printf(" The number was %d.%n", targetNumber);
     }
 }
