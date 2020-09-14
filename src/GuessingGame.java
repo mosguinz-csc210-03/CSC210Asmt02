@@ -35,15 +35,17 @@ public class GuessingGame {
             System.out.printf(">>> Guess #%d: ", totalGuesses);
             delta = targetNumber - scan.nextInt();
 
-            if (delta > 0) System.out.println("[x] Too low!");
-            else if (delta < 0) System.out.println("[x] Too high!");
-            else {
-                System.out.print("\nAwesome, you won!");
+            if (delta > 0) {
+                System.out.println("[x] Too low!");
+            } else if (delta < 0) {
+                System.out.println("[x] Too high!");
+            } else {
+                System.out.print("Awesome, you won!");
                 break;
             }
 
             if (totalGuesses == MAX_GUESSES) {
-                System.out.print("\nGame over!");
+                System.out.print("Game over!");
                 break;
             }
         }
