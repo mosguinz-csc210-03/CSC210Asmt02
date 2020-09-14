@@ -45,6 +45,7 @@ public class DrivingExamEvaluator {
      * Validate the given score.
      * Prints a message of the given score is invalid and returns a score
      * that is within the valid range.
+     *
      * @param score The score to validate.
      * @return A valid score.
      */
