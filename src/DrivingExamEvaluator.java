@@ -74,6 +74,15 @@ public class DrivingExamEvaluator {
         System.out.printf("%nYour total score is: %f", totalWeighted);
     }
 
+    private static void displayResults(String studentID, double writtenScore, double practicalScore) {
+        System.out.println("=========================================");
+        System.out.printf("STUDENT ID: %s%n", studentID);
+        System.out.println("Congratulations on finishing your test!");
+        System.out.println("-----------------------------------------");
+        System.out.printf("Your final scores: WRITTEN: %.2f, PRACTICAL: %.2f%n", writtenScore, practicalScore);
+        calculateScore(writtenScore, practicalScore);
+    }
+
     public static void loop() {
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter your student ID: ");
@@ -83,13 +92,6 @@ public class DrivingExamEvaluator {
         System.out.print("Enter your practical exam score: ");
         double practicalScore = validateScore(scan.nextDouble());
 
-        System.out.println("=========================================");
-        System.out.printf("STUDENT ID: %s%n", studentID);
-        System.out.println("Congratulations on finishing your test!");
-        System.out.println("-----------------------------------------");
-        System.out.println("YOUR RESULTS");
-        System.out.printf("  Written exam: %.2f%n", writtenScore);
-        System.out.printf("Practical exam: %.2f%n", practicalScore);
-        calculateScore(writtenScore, practicalScore);
+        displayResults(studentID, writtenScore, practicalScore);
     }
 }
