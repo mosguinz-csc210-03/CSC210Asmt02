@@ -37,7 +37,7 @@ public class GuessingGame {
      * Much of the method is self-explanatory, but comments have been added to further
      * explain its purpose (and to comply with part (3)(b) of the assessment).
      */
-    private static void loop() {
+    public static void loop() {
         /* To keep track of the number of guesses. */
         int totalGuesses = 0;
 
